@@ -1,0 +1,271 @@
+/* Vortex Social - Brutalist Tech Style v1.1 */
+:root {
+    --bg-main: #0a0a0a;       
+    --bg-chat: #141414;       
+    --bg-msg: #1d1d1d;        
+    --tech-green: #00ff41;    
+    --text-main: #e0e0e0;     
+    --border-color: #333;     
+    --font-family: 'Courier New', Courier, monospace; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* O segredo para o teclado do celular não quebrar o layout */
+html, body {
+    height: 100%;
+    background-color: var(--bg-main);
+    overflow: hidden;
+}
+
+body {
+    color: var(--text-main);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    /* Suporte para navegadores modernos e mobile */
+    height: 100dvh; 
+}
+
+.main-container {
+    height: 100dvh; /* Altura total da tela do celular */
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-chat);
+}
+
+header {
+    padding: 15px;
+    background-color: var(--bg-chat);
+    border-bottom: 2px solid var(--tech-green);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.1rem;
+    color: var(--tech-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Área de mensagens que estica e tem scroll */
+.chat-room {
+    flex: 1; /* Faz o chat ocupar todo o espaço disponível */
+    overflow-y: auto; /* Cria o scroll interno */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    /* ADICIONE ISSO AQUI: */
+    max-height: calc(100dvh - 150px); 
+}
+
+
+/* Estilo das Mensagens - Foco em leitura */
+.message {
+    background-color: var(--bg-msg);
+    padding: 12px;
+    border-radius: 4px;
+    border-left: 3px solid #444;
+    max-width: 90%;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.message:last-child {
+    border-left: 3px solid var(--tech-green);
+}
+
+/* Área de Input - Subida para não ficar "baixo" demais */
+.input-area {
+    padding: 20px;
+    background-color: var(--bg-chat);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    /* Ajuste para iPhones e Androids com barra de gestos */
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.terminal-input {
+    flex: 1;
+    padding: 15px;
+    background-color: #000;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--tech-green);
+    font-family: var(--font-family);
+    font-size: 16px; /* Tamanho 16 evita zoom automático no mobile */
+    outline: none;
+}
+
+.terminal-input:focus {
+    border-color: var(--tech-green);
+}
+
+.send-btn {
+    padding: 0 20px;
+    background-color: var(--tech-green);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.send-btn:active {
+    background-color: #00cc33;
+    transform: scale(0.95);
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 400px) {
+    header h1 { font-size: 0.9rem; }
+    .input-area { padding: 10px; }
+}
+/* Sala de Login - Estilo Matrix/Terminal */
+.sala_logar {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    background-color: var(--bg-chat);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.sala_logar h1 {
+    font-size: 1.5rem;
+    color: var(--tech-green);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.sala_logar input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #000;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--tech-green);
+    font-family: var(--font-family);
+    font-size: 16px; /* Evita zoom no mobile */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.sala_logar input:focus {
+    border-color: var(--tech-green);
+    box-shadow: 0 0 5px var(--tech-green);
+}
+
+.sala_logar button {
+    width: 100%;
+    padding: 15px;
+    background-color: transparent;
+    color: var(--tech-green);
+    border: 2px solid var(--tech-green);
+    border-radius: 4px;
+    font-family: var(--font-family);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.sala_logar button:hover {
+    background-color: var(--tech-green);
+    color: #000;
+}
+
+.sala_logar button:active {
+    transform: scale(0.98);
+}
+
+/* Pequeno ajuste para garantir que a sala de login ocupe a tela toda no mobile */
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+/* Estilo para o nome do usuário embaixo da mensagem */
+.user-tag {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--tech-green);
+    opacity: 0.6;
+    margin-bottom: 2px; /* Espaço para a mensagem que vem logo abaixo */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Ajuste no container de mensagens para elas não ficarem coladas */
+.message {
+    margin-bottom: 8px; /* Espaço entre o balão e o próximo nome */
+}
+
+/* --- NOVAS ADIÇÕES PARA SKINS --- */
+
+/* 1. Coloca as skins do login uma do lado da outra */
+#sala_skins {
+    display: flex;
+    flex-direction: row; /* Garante que fiquem na horizontal */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaço entre elas */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* 2. Estilo das imagens de skin no Chat */
+.chat-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* Deixa redondinha */
+    border: 1px solid var(--tech-green);
+    margin-right: 8px; /* Espaço entre a foto e o nome */
+    vertical-align: middle; /* Alinha com o texto */
+    object-fit: cover;
+}
+
+/* 3. Ajuste para o rádio não quebrar o layout das imagens no login */
+#sala_skins label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+#sala_skins input[type="radio"] {
+    margin-bottom: 5px;
+    width: auto; /* Impede que o radio herde os 100% de largura dos outros inputs */
+}
+
+/* Garante que o container da mensagem aceite o avatar do lado */
+#conversa_room div {
+    display: block; /* Mantém a estrutura de blocos do terminal */
+    margin-bottom: 10px;
+}

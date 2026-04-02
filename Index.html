@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Social - Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+  <div class="sala_logar" id="login" style="display:block">
+    <h1>Login</h1>
+    <input id="nome_user" type="text" placeholder="Escolha um Nome!!">
+    <input id="idade_user" type="number" placeholder="Escolha uma idade!!">
+    <br>
+    <h3>Escolha uma skin</h1>
+    <p>opicional</p>
+       <br>
+     <div class="estilo" id="sala_skins">
+      <label>
+      <input type="radio" name="selecionar" value="sikin_padrao.png">
+      <img src="sikin_padrao.png" alt="persona_1" width="50" height="50">
+      </label>
+       
+      <label>
+      <input type="radio" name="selecionar" value="skin_negro.png">
+      <img src="skin_negro.png" alt="persona_2" width="50" height="50">
+      </label>
+       
+       <label>
+      <input type="radio" name="selecionar" value="menina.png">
+      <img src="menina.png" alt="persona_2" width="50" height="50">
+      </label>
+       
+       <label>
+      <input type="radio" name="selecionar" value="menina_negra.png">
+      <img src="menina_negra.png" alt="persona_2" width="50" height="50">
+      </label>
+       
+    </div>
+    <br>
+    <button id="salvar_user">Salvar</button>
+   
+  </div>
+  
+  <div class="main-container" style="display:none" id="sala_principal">
+    <header>
+      <h1>> Vórtex_Social_v1.0</h1>
+    </header>
+
+    <div class="chat-room" id="conversa_room">
+      </div> 
+    
+    <div class="input-area" id="escrita">
+      <input type="text" class="terminal-input" id="chat" placeholder="Digite sua mensagem e pressione Enter ou ∆">
+      <button class="send-btn" id="enviar">∆</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
